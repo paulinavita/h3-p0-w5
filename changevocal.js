@@ -1,29 +1,22 @@
 function changeVocals (str) {
-
-    noVocals = ''
-    for (i = 0; i < str.length ;i++) {
-        if(str[i] === 'a') {
-            noVocals += 'b'
-        } else if (str[i] === 'i') {
-            noVocals += 'j'
-        } else if (str[i] === 'u') {
-            noVocals += 'v'
-        } else if (str[i] === 'e') {
-            noVocals += 'f'
-        } else if (str[i] === 'o') {
-            noVocals += 'p'
-        } else if (str[i] === 'A') {
-            noVocals += 'B'
-        } else if (str[i] === 'I') {
-            noVocals += 'J'
-        } else if (str[i] === 'U') {
-            noVocals += 'V'
-        } else if (str[i] === 'E') {
-            noVocals += 'F'
-        } else if (str[i] === 'O') {
-            noVocals += 'P'
-        } else noVocals += str[i]
+    // revisian ganti dengan kamus array atau string
+    var noVocals = ''
+    var vowelsOnly = 'aiuoeAIUEO'
+    var consOnly = 'bjvfpBJVFP'
+    
+    for ( h = 0; h < str.length ; h++) {
+        var isExist = false
+        for (i = 0; i < vowelsOnly.length ;i++) {
+            if (str[h] === vowelsOnly[i]) {
+                noVocals += consOnly[i]
+                isExist = true
+            }
+        }
+        if (!isExist) {
+            noVocals += str[h]
+        } 
     }
+    // console.log (noVocals)
     return noVocals
 }
 
